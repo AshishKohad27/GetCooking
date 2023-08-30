@@ -1,10 +1,60 @@
 /* Colors */
+$getcooking-color--white: #ffffff;
+$getcooking-color--phbkc: #d9d9d9;
+$getcooking-color--gray: #a9a9a9;
+$getcooking-color--lightblack: #121212;
+$getcooking-color--black: #000000;
+$getcooking-color--orange: #ff9c00;
+$getcooking-color--teal: #129575;
+$getcooking-color--red: #FF0000;
+
+/* PlaceHolder */
+@mixin input-placeholder-css($ff, $fs, $fw, $lh, $co) {
+    &::placeholder {
+        @include viari-text-style($ff, $fs, $fw, $lh, $co);
+    }
+
+    ::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        @include viari-text-style($ff, $fs, $fw, $lh, $co);
+    }
+
+    ::-moz-placeholder {
+        /* Firefox 19+ */
+        @include viari-text-style($ff, $fs, $fw, $lh, $co);
+    }
+
+    :-ms-input-placeholder {
+        /* IE 10+ */
+        @include viari-text-style($ff, $fs, $fw, $lh, $co);
+    }
+
+    :-moz-placeholder {
+        /* Firefox 18- */
+        @include viari-text-style($ff, $fs, $fw, $lh, $co);
+    }
+}
 
 /* Text Style */
+@mixin viari-text-style($ff, $fs, $fw, $lh, $co) {
+    font-family: $ff;
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+    color: $co;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
 
 /* Container */
-
-.ash {
-    color: rebeccapurple;
-    background-color: red;
+.site-container {
+    max-width: calc(1240px + 40px);
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
