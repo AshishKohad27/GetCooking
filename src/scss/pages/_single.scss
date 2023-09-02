@@ -1,0 +1,382 @@
+@use "../website/base";
+
+.single-outer {
+    // width: 100vw;
+    // height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.single-inner {
+    padding-top: 20px;
+}
+
+.single-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .single-tabsheader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    span {
+        cursor: pointer;
+
+        a {
+            text-decoration: none;
+            @include base.viari-text-style("Poppins",
+                18px,
+                600,
+                24px,
+                base.$getcooking-color--black );
+
+            transition: color 0.5s;
+        }
+
+        transition: color 0.5s;
+        text-transform: capitalize;
+        @include base.viari-text-style("Poppins",
+            18px,
+            600,
+            24px,
+            base.$getcooking-color--black );
+
+        &:hover {
+            color: base.$getcooking-color--orange;
+
+            a {
+                color: base.$getcooking-color--orange;
+            }
+        }
+    }
+
+    svg {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .isbookmark {
+        color: base.$getcooking-color--orange;
+    }
+}
+
+.single-bgCover {
+    margin-top: 24px;
+    width: 100%;
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+
+
+    }
+
+
+    h1 {
+        position: relative;
+        z-index: 5;
+        text-transform: uppercase;
+        text-decoration: underline;
+        @include base.viari-text-style("Poppins",
+            50px,
+            600,
+            24px,
+            base.$getcooking-color--white );
+
+        // font-family: 'Carter One', cursive;
+        font-family: 'Irish Grover', cursive;
+
+        &:first-letter {
+            font-size: 100px;
+            // font-family: 'Carter One', cursive;
+            font-family: 'Irish Grover', cursive;
+        }
+    }
+
+
+    .tool-cover {
+        padding: 5px 30px 5px 10px;
+        height: 30px;
+        text-transform: capitalize;
+        border-radius: 0px 15px 15px 0px;
+        letter-spacing: 1px;
+        @include base.viari-text-style("Poppins",
+            12px,
+            600,
+            20px,
+            base.$getcooking-color--white );
+    }
+
+    .tool-cat {
+        position: absolute;
+        bottom: 70px;
+        left: 0px;
+
+        background-color: #48BB78;
+        color: #22543D;
+    }
+
+    .tool-area {
+        position: absolute;
+        bottom: 30px;
+        left: 0px;
+        background-color: #F56565;
+        color: #822727;
+    }
+}
+
+.single-tool {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0px;
+
+    .tool-tag-title {
+        margin-top: 10px;
+        background-color: rgb(232, 243, 243);
+        border-bottom: 3px solid base.$getcooking-color--orange;
+
+        @include base.viari-text-style("Poppins",
+            30px,
+            600,
+            24px,
+            base.$getcooking-color--orange );
+        font-family: 'Irish Grover', cursive;
+        padding: 10px;
+    }
+
+    .tags-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+
+        .tool-tags {
+            padding: 5px 20px;
+            background-color: base.$getcooking-color--orange;
+            border-radius: 10px;
+            @include base.viari-text-style("Poppins",
+                18px,
+                600,
+                24px,
+                base.$getcooking-color--white );
+
+        }
+    }
+
+}
+
+
+.tabs-ingpro {
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+
+
+    .tabs-btn {
+        cursor: pointer;
+
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 10px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        background-color: #B794F4;
+
+
+        h1 {
+            @include base.viari-text-style("Quando",
+                20px,
+                600,
+                22px,
+                base.$getcooking-color--white );
+            letter-spacing: 3px;
+        }
+    }
+
+    .tabs--active {
+        background-color: #6B46C1;
+
+
+        h1 {
+            color: base.$getcooking-color--white;
+        }
+    }
+
+
+}
+
+
+.ingpro-container {
+    margin-top: 40px;
+}
+
+.ingridents-grid {
+
+    width: 100%;
+    display: flex;
+    gap: 20px;
+
+    .ingridents-gridItem {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        cursor: pointer;
+        background-color: base.$getcooking-color--phbkc;
+        width: calc(100%/3);
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ingridents-content {
+        width: 100%;
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+
+        .ing-img {
+            padding: 6px;
+            background-color: base.$getcooking-color--white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        h1 {
+            @include base.viari-text-style("Irish Grover",
+                28px,
+                700,
+                32px,
+                base.$getcooking-color--black );
+        }
+
+        p {
+            @include base.viari-text-style("Irish Grover",
+                28px,
+                500,
+                22px,
+                base.$getcooking-color--lightblack );
+        }
+    }
+
+    .ingridents-cover {
+        width: 100%;
+        background-color: rebeccapurple;
+        height: 82px;
+        position: absolute;
+        top: -82px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        h1 {
+            position: relative;
+            z-index: 5;
+            @include base.viari-text-style("Quando",
+                28px,
+                700,
+                32px,
+                base.$getcooking-color--white );
+        }
+
+        &::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .ingridents-gridItem:hover {
+        .ingridents-cover {
+            top: 0px;
+        }
+    }
+}
+
+.procedure-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    gap: 20px;
+
+    .listItem {
+        width: 100%;
+        list-style: none;
+        background-color: base.$getcooking-color--phbkc;
+        cursor: pointer;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border: 1px solid base.$getcooking-color--teal;
+        transition: background-color 0.5s;
+
+        h1 {
+
+            @include base.viari-text-style("Poppins",
+                20px,
+                700,
+                24px,
+                base.$getcooking-color--teal );
+        }
+
+        p {
+            margin-top: 10px;
+            @include base.viari-text-style("Poppins",
+                20px,
+                500,
+                24px,
+                base.$getcooking-color--black);
+        }
+
+        &:hover {
+            background-color: #fff;
+        }
+    }
+}

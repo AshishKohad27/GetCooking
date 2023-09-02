@@ -1,0 +1,371 @@
+@use "../website/base";
+
+.hm-outer {
+
+    position: relative;
+    overflow: auto;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.hm-bgCover {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    bottom: -250px;
+    height: 100%;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.hm-inner {
+    padding-top: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.hm-heading {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .hm-title {
+        h1 {
+            @include base.viari-text-style('Poppins', 48px, 700, 56px, base.$getcooking-color--black);
+        }
+
+        p {
+            @include base.viari-text-style('Poppins', 24px, 400, normal, base.$getcooking-color--lightblack);
+        }
+    }
+
+    .hm-logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+.hm-inputbox {
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+    .hm-input {
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .hm-searchbox {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: base.$getcooking-color--white;
+            border-radius: 6px 0px 0px 6px;
+            border: 1.5px solid base.$getcooking-color--phbkc;
+            border-right: 0px;
+
+            svg {
+                width: 30px;
+                height: 30px;
+                color: base.$getcooking-color--phbkc;
+            }
+        }
+
+        input {
+            height: 60px;
+            width: 100%;
+            border-radius: 0px 6px 6px 0px;
+            border: 1.5px solid base.$getcooking-color--phbkc;
+            border-left: 0px;
+            padding: 15px 16px 15px 0px;
+
+            @include base.viari-text-style('Poppins', 18px, 400, normal, base.$getcooking-color--black);
+            @include base.input-placeholder-css("Poppins", 18px, 400, normal,
+                base.$getcooking-color--phbkc );
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .hm-filter {
+        width: 60px;
+        height: 60px;
+        background-color: base.$getcooking-color--teal;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+            width: 40px;
+            height: 40px;
+            color: base.$getcooking-color--white;
+        }
+    }
+}
+
+.hm-grid {
+    margin-top: 40px;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    .hm-gridItem {
+        width: calc((100%/4) - 20px);
+
+        background-color: base.$getcooking-color--white;
+        padding: 1px;
+        // border: 1px solid base.$getcooking-color--black;
+        border-radius: 10px;
+
+        .hm-links {
+            text-decoration: none;
+        }
+
+
+
+        .hm-cover {
+
+            width: 100%;
+            height: 220px;
+            position: relative;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            overflow: hidden;
+
+            .gridItem-content {
+                padding: 10px;
+                position: relative;
+                z-index: 5;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column
+            }
+
+            h1 {
+
+                @include base.viari-text-style('Poppins', 18px, 500, 24px, base.$getcooking-color--white);
+            }
+
+            p {
+
+                border: 1px solid base.$getcooking-color--white;
+                margin-top: 10px;
+                padding: 2px 14px;
+                border-radius: 10px;
+                background-color: base.$getcooking-color--orange;
+                @include base.viari-text-style('Poppins', 12px, 500, 20px, base.$getcooking-color--white);
+            }
+        }
+
+
+
+
+
+        .hm-cover::before {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hm-slideCover {
+            width: 100%;
+            height: 220px;
+            background-color: base.$getcooking-color--teal;
+            opacity: 0.5;
+            border-radius: 10px;
+            position: absolute;
+            top: 220px;
+            z-index: 5;
+            transition: all 0.7s;
+
+        }
+
+        .hm-cover:hover {
+            .hm-slideCover {
+                top: 0px;
+            }
+        }
+
+    }
+}
+
+@media (max-width:1100px) {
+    .hm-grid {
+
+
+        .hm-gridItem {
+            width: calc((100%/3) - 20px);
+        }
+    }
+}
+
+@media (max-width:800px) {
+    .hm-grid {
+
+
+        .hm-gridItem {
+            width: calc((100%/2) - 20px);
+        }
+    }
+}
+
+@media (max-width:767px) {
+    .hm-heading {
+
+        .hm-title {
+            h1 {
+                font-size: 30px
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+        .hm-logo {
+            width: 80px;
+            height: 80px;
+
+        }
+    }
+
+    .hm-inputbox {
+        margin-top: 20px;
+        gap: 20px;
+
+        .hm-input {
+            width: calc(100% - 40px);
+
+
+
+            .hm-searchbox {
+                width: 40px;
+                height: 40px;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+
+                }
+            }
+
+            input {
+                height: 40px;
+                width: calc(100% - 40px);
+
+
+                @include base.viari-text-style('Poppins', 14px, 400, 20px, base.$getcooking-color--black);
+                @include base.input-placeholder-css("Poppins", 14px, 400, 20px,
+                    base.$getcooking-color--phbkc );
+
+            }
+        }
+
+        .hm-filter {
+            width: 40px;
+            height: 40px;
+
+
+            svg {
+                width: 20px;
+                height: 20px;
+
+            }
+        }
+    }
+
+    .hm-grid {
+        margin-top: 20px;
+    }
+
+}
+
+@media (max-width:600px) {
+    .hm-grid {
+
+
+        .hm-gridItem {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width:434px) {
+
+    .hm-heading {
+
+        .hm-title {
+            h1 {
+                font-size: 26px;
+                line-height: 32px;
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 300;
+            }
+        }
+
+        .hm-logo {
+            width: 40px;
+            height: 40px;
+
+        }
+    }
+
+    .hm-grid {
+
+
+        .hm-gridItem {
+            width: 100%;
+
+
+            .hm-cover {
+
+                width: 100%;
+                height: 150px;
+            }
+        }
+    }
+}
