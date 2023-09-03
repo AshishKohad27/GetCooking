@@ -1,7 +1,7 @@
 /* Font Family */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quando&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quando&display=swap");
 /* Colors */
 $getcooking-color--white: #ffffff;
 $getcooking-color--phbkc: #d9d9d9;
@@ -10,7 +10,7 @@ $getcooking-color--lightblack: #121212;
 $getcooking-color--black: #000000;
 $getcooking-color--orange: #ff9c00;
 $getcooking-color--teal: #129575;
-$getcooking-color--red: #FF0000;
+$getcooking-color--red: #ff0000;
 
 /* PlaceHolder */
 @mixin input-placeholder-css($ff, $fs, $fw, $lh, $co) {
@@ -61,4 +61,19 @@ $getcooking-color--red: #FF0000;
     padding-right: 20px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Buttons */
+.site-category {
+    button {
+        padding: 10px;
+        border: 0px;
+        border-radius: 10px;
+        @include viari-text-style("Poppins",
+            20px,
+            500,
+            26px,
+            $getcooking-color--white );
+
+    }
 }

@@ -2,14 +2,135 @@ import { GoFilter } from "react-icons/go";
 import { BsSearch } from "react-icons/bs";
 import Link from "next/link";
 import category from "../../category.json";
+import area from "../../area.json";
+import { useState, useEffect } from "react";
+import food from "../../food.json";
+import axios from "axios";
+
+interface AreaItems {
+  strArea: string;
+  btnHover: string;
+}
+
+let AreaArray: Array<AreaItems> = [
+  {
+    strArea: "American",
+    btnHover: "#ffae25",
+  },
+  {
+    strArea: "British",
+    btnHover: "#ff002a",
+  },
+  {
+    strArea: "Canadian",
+    btnHover: "#fc16a8",
+  },
+  {
+    strArea: "Chinese",
+    btnHover: "#ff4f00",
+  },
+  {
+    strArea: "Croatian",
+    btnHover: "#7fc61b",
+  },
+  {
+    strArea: "Dutch",
+    btnHover: "#ff002a",
+  },
+  {
+    strArea: "Egyptian",
+    btnHover: "#61CE70",
+  },
+  {
+    strArea: "Filipino",
+    btnHover: "#077a6e",
+  },
+  {
+    strArea: "French",
+    btnHover: "#cc5b06",
+  },
+  {
+    strArea: "Greek",
+    btnHover: "#52a815",
+  },
+  {
+    strArea: "Indian",
+    btnHover: "#00baff",
+  },
+  {
+    strArea: "Irish",
+    btnHover: "#007bff",
+  },
+  {
+    strArea: "Italian",
+    btnHover: "#E53E3E",
+  },
+  {
+    strArea: "Jamaican",
+    btnHover: "#DD6B20",
+  },
+  {
+    strArea: "Japanese",
+    btnHover: "#38A169",
+  },
+  {
+    strArea: "Kenyan",
+    btnHover: "#319795",
+  },
+  {
+    strArea: "Malaysian",
+    btnHover: "#3182CE",
+  },
+  {
+    strArea: "Mexican",
+    btnHover: "#086F83",
+  },
+  {
+    strArea: "Moroccan",
+    btnHover: "#805AD5",
+  },
+  {
+    strArea: "Polish",
+    btnHover: "#D53F8C",
+  },
+  {
+    strArea: "Portuguese",
+    btnHover: "#22543D",
+  },
+  {
+    strArea: "Russian",
+    btnHover: "#702459",
+  },
+  {
+    strArea: "Spanish",
+    btnHover: "#9C4221",
+  },
+  {
+    strArea: "Thai",
+    btnHover: "#C53030",
+  },
+  {
+    strArea: "Tunisian",
+    btnHover: "#ECC94B",
+  },
+  {
+    strArea: "Turkish",
+    btnHover: "#0BC5EA",
+  },
+  {
+    strArea: "Vietnamese",
+    btnHover: "#702459",
+  },
+];
 
 export default function HomePage() {
-  console.log("category:", category);
+  console.log("food:", food[0]);
+
   return (
     <div
       className="hm-outer"
       style={{
-        backgroundImage: `url(${"/images/singlepage-cover.png"})`,
+        backgroundImage: `url(${"/images/bgcover-hm.png"})`,
       }}
     >
       <div className="site-container">
@@ -34,95 +155,74 @@ export default function HomePage() {
               <input type="text" placeholder="Search Recipes" />
             </div>
             <div className="hm-filter">
-              <GoFilter />
+              <button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#filterModal"
+              >
+                <GoFilter />
+              </button>
             </div>
           </div>
 
-          {/* Category Block */}
-          <div className="hm-category"></div>
+          {/* Category/Area Block */}
+          <div className="hm-areacat">
+            <button
+              type="button"
+              className="btn-block btn-category"
+              data-bs-toggle="modal"
+              data-bs-target="#categoryModal"
+            >
+              Category
+            </button>
+            <button
+              type="button"
+              className="btn-block btn-area"
+              data-bs-toggle="modal"
+              data-bs-target="#areaModal"
+            >
+              Area
+            </button>
+          </div>
+
+          {area &&
+            area.map((item: any, index: number) => (
+              <div className="btn-area" key={index}>
+                {/* <Area areaProps={item.strArea} /> */}
+              </div>
+            ))}
 
           <div className="hm-grid">
-            <div className="hm-gridItem">
-              <Link className="hm-links" href="/id">
-                <div
-                  className="hm-cover"
-                  style={{
-                    backgroundImage: `url(${"images/food.jpg"})`,
-                  }}
-                >
-                  {/* Cover of Item */}
-                  <div className="hm-slideCover"></div>
-                  {/* Content */}
-                  <div className="gridItem-content">
-                    <h1>Traditional spare ribs baked</h1>
-                    <p>Italian</p>
-                  </div>
-                </div>
-              </Link>
-            </div>
-
-            <div className="hm-gridItem">
-              <Link className="hm-links" href="/id">
-                <div
-                  className="hm-cover"
-                  style={{
-                    backgroundImage: `url(${"images/food.jpg"})`,
-                  }}
-                >
-                  {/* Cover of Item */}
-                  <div className="hm-slideCover"></div>
-                  {/* Content */}
-                  <div className="gridItem-content">
-                    <h1>Traditional spare ribs baked</h1>
-                    <p>Italian</p>
-                  </div>
-                </div>
-              </Link>
-            </div>
-
-            <div className="hm-gridItem">
-              <Link className="hm-links" href="/id">
-                <div
-                  className="hm-cover"
-                  style={{
-                    backgroundImage: `url(${"images/food.jpg"})`,
-                  }}
-                >
-                  {/* Cover of Item */}
-                  <div className="hm-slideCover"></div>
-                  {/* Content */}
-                  <div className="gridItem-content">
-                    <h1>Traditional spare ribs baked</h1>
-                    <p>Italian</p>
-                  </div>
-                </div>
-              </Link>
-            </div>
-
-            <div className="hm-gridItem">
-              <Link className="hm-links" href="/food">
-                <div
-                  className="hm-cover"
-                  style={{
-                    backgroundImage: `url(${"images/food.jpg"})`,
-                  }}
-                >
-                  {/* Cover of Item */}
-                  <div className="hm-slideCover"></div>
-                  {/* Content */}
-                  <div className="gridItem-content">
-                    <h1>Traditional spare ribs baked</h1>
-                    <p>Italian</p>
-                  </div>
-                </div>
-              </Link>
-            </div>
+            {food &&
+              food.map(
+                (
+                  {
+                    strMealThumb,
+                    strArea,
+                    strMeal,
+                    idMeal,
+                  }: {
+                    strMealThumb: string;
+                    strArea: string;
+                    strMeal: string;
+                    idMeal: string;
+                  },
+                  index: number
+                ) => (
+                  <GridItemContent
+                    strMealThumb={strMealThumb}
+                    strArea={strArea}
+                    strMeal={strMeal}
+                    idMeal={idMeal}
+                  />
+                )
+              )}
           </div>
         </div>
       </div>
 
       {/* Background */}
-      <div className="hm-bgCover">
+      {/* <div className="hm-bgCover">
         <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="b">
@@ -144,7 +244,185 @@ export default function HomePage() {
             />
           </g>
         </svg>
+      </div> */}
+
+      {/* Modal: Area */}
+      <div
+        className="modal fade"
+        id="areaModal"
+        aria-labelledby="areaModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="areaModalLabel">
+                Area title
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">...</div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" className="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
+
+      {/* Modal: Category */}
+      <div
+        className="modal fade"
+        id="categoryModal"
+        aria-labelledby="categoryModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="categoryModalLabel">
+                Category title
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">...</div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" className="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal: Filter */}
+      <div
+        className="modal fade"
+        id="filterModal"
+        aria-labelledby="filterModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="filterModalLabel">
+                filter title
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">...</div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" className="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GridItemContent({
+  strMealThumb,
+  strArea,
+  strMeal,
+  idMeal,
+}: {
+  strMealThumb: string;
+  strArea: string;
+  strMeal: string;
+  idMeal: string;
+}) {
+  // console.log(item)
+  const [color, setColor] = useState<string>("");
+
+  useEffect(() => {
+    let filteredItems = AreaArray.filter(
+      (item) => item.strArea.toLowerCase() === strArea.toLowerCase()
+    )[0];
+    setColor(filteredItems.btnHover);
+  }, []);
+  return (
+    <div
+      className="hm-gridItem"
+      style={{
+        backgroundColor: color,
+      }}
+    >
+      <Link
+        className="hm-links"
+        href={{
+          pathname: idMeal,
+          query: {
+            color,
+          },
+        }}
+      >
+        <div
+          className="hm-cover"
+          style={{
+            backgroundImage: `url(${strMealThumb})`,
+          }}
+        >
+          {/* Cover of Item */}
+          <div
+            className="hm-slideCover"
+            style={{
+              backgroundColor: color,
+            }}
+          ></div>
+
+          {/* Content */}
+          <div className="gridItem-content">
+            <h1>{strMeal}</h1>
+            <p
+              style={{
+                backgroundColor: color,
+              }}
+            >
+              {strArea}
+            </p>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }

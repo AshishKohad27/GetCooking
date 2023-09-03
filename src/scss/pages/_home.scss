@@ -1,7 +1,6 @@
 @use "../website/base";
 
 .hm-outer {
-
     position: relative;
     overflow: auto;
     width: 100vw;
@@ -9,7 +8,6 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 
 .hm-bgCover {
@@ -34,18 +32,25 @@
 }
 
 .hm-heading {
-
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     .hm-title {
         h1 {
-            @include base.viari-text-style('Poppins', 48px, 700, 56px, base.$getcooking-color--black);
+            @include base.viari-text-style("Poppins",
+                48px,
+                700,
+                56px,
+                base.$getcooking-color--white );
         }
 
         p {
-            @include base.viari-text-style('Poppins', 24px, 400, normal, base.$getcooking-color--lightblack);
+            @include base.viari-text-style("Poppins",
+                24px,
+                400,
+                normal,
+                base.$getcooking-color--white );
         }
     }
 
@@ -68,15 +73,14 @@
     gap: 40px;
 
     .hm-input {
-
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
 
         .hm-searchbox {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -93,15 +97,22 @@
         }
 
         input {
-            height: 60px;
+            height: 50px;
             width: 100%;
             border-radius: 0px 6px 6px 0px;
             border: 1.5px solid base.$getcooking-color--phbkc;
             border-left: 0px;
-            padding: 15px 16px 15px 0px;
+            padding: 10px 16px 10px 0px;
 
-            @include base.viari-text-style('Poppins', 18px, 400, normal, base.$getcooking-color--black);
-            @include base.input-placeholder-css("Poppins", 18px, 400, normal,
+            @include base.viari-text-style("Poppins",
+                18px,
+                400,
+                normal,
+                base.$getcooking-color--black );
+            @include base.input-placeholder-css("Poppins",
+                18px,
+                400,
+                normal,
                 base.$getcooking-color--phbkc );
 
             &:focus {
@@ -111,21 +122,49 @@
     }
 
     .hm-filter {
-        width: 60px;
-        height: 60px;
-        background-color: base.$getcooking-color--teal;
-        border-radius: 6px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
+        button {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(83, 197, 197);
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 0px;
+
+            &:focus {
+                outline: none;
+            }
+        }
 
         svg {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             color: base.$getcooking-color--white;
         }
     }
+}
+
+.hm-areacat {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+
+    .btn-block {
+        background-color: base.$getcooking-color--teal;
+        border: 0px;
+    }
+}
+
+.hm-category {
+    background-color: red;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
 }
 
 .hm-grid {
@@ -139,21 +178,16 @@
     gap: 20px;
 
     .hm-gridItem {
-        width: calc((100%/4) - 20px);
-
-        background-color: base.$getcooking-color--white;
-        padding: 1px;
-        // border: 1px solid base.$getcooking-color--black;
-        border-radius: 10px;
+        width: calc((100% / 4) - 20px);
+        padding: 3px;
+        box-sizing: border-box;
+        border-radius: 12px;
 
         .hm-links {
             text-decoration: none;
         }
 
-
-
         .hm-cover {
-
             width: 100%;
             height: 220px;
             position: relative;
@@ -173,31 +207,32 @@
                 display: flex;
                 justify-content: center;
                 align-items: flex-start;
-                flex-direction: column
+                flex-direction: column;
             }
 
             h1 {
-
-                @include base.viari-text-style('Poppins', 18px, 500, 24px, base.$getcooking-color--white);
+                @include base.viari-text-style("Poppins",
+                    18px,
+                    500,
+                    24px,
+                    base.$getcooking-color--white );
             }
 
             p {
-
                 border: 1px solid base.$getcooking-color--white;
                 margin-top: 10px;
                 padding: 2px 14px;
                 border-radius: 10px;
-                background-color: base.$getcooking-color--orange;
-                @include base.viari-text-style('Poppins', 12px, 500, 20px, base.$getcooking-color--white);
+                @include base.viari-text-style("Poppins",
+                    12px,
+                    500,
+                    20px,
+                    base.$getcooking-color--white );
             }
         }
 
-
-
-
-
         .hm-cover::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0px;
             left: 0px;
@@ -210,14 +245,12 @@
         .hm-slideCover {
             width: 100%;
             height: 220px;
-            background-color: base.$getcooking-color--teal;
             opacity: 0.5;
             border-radius: 10px;
             position: absolute;
             top: 220px;
             z-index: 5;
             transition: all 0.7s;
-
         }
 
         .hm-cover:hover {
@@ -225,36 +258,30 @@
                 top: 0px;
             }
         }
-
     }
 }
 
-@media (max-width:1100px) {
+@media (max-width: 1100px) {
     .hm-grid {
-
-
         .hm-gridItem {
-            width: calc((100%/3) - 20px);
+            width: calc((100% / 3) - 20px);
         }
     }
 }
 
-@media (max-width:800px) {
+@media (max-width: 800px) {
     .hm-grid {
-
-
         .hm-gridItem {
-            width: calc((100%/2) - 20px);
+            width: calc((100% / 2) - 20px);
         }
     }
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
     .hm-heading {
-
         .hm-title {
             h1 {
-                font-size: 30px
+                font-size: 30px;
             }
 
             p {
@@ -265,7 +292,6 @@
         .hm-logo {
             width: 80px;
             height: 80px;
-
         }
     }
 
@@ -276,8 +302,6 @@
         .hm-input {
             width: calc(100% - 40px);
 
-
-
             .hm-searchbox {
                 width: 40px;
                 height: 40px;
@@ -285,7 +309,6 @@
                 svg {
                     width: 20px;
                     height: 20px;
-
                 }
             }
 
@@ -293,11 +316,16 @@
                 height: 40px;
                 width: calc(100% - 40px);
 
-
-                @include base.viari-text-style('Poppins', 14px, 400, 20px, base.$getcooking-color--black);
-                @include base.input-placeholder-css("Poppins", 14px, 400, 20px,
+                @include base.viari-text-style("Poppins",
+                    14px,
+                    400,
+                    20px,
+                    base.$getcooking-color--black );
+                @include base.input-placeholder-css("Poppins",
+                    14px,
+                    400,
+                    20px,
                     base.$getcooking-color--phbkc );
-
             }
         }
 
@@ -305,11 +333,9 @@
             width: 40px;
             height: 40px;
 
-
             svg {
                 width: 20px;
                 height: 20px;
-
             }
         }
     }
@@ -317,23 +343,18 @@
     .hm-grid {
         margin-top: 20px;
     }
-
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
     .hm-grid {
-
-
         .hm-gridItem {
             width: 100%;
         }
     }
 }
 
-@media (max-width:434px) {
-
+@media (max-width: 434px) {
     .hm-heading {
-
         .hm-title {
             h1 {
                 font-size: 26px;
@@ -350,19 +371,14 @@
         .hm-logo {
             width: 40px;
             height: 40px;
-
         }
     }
 
     .hm-grid {
-
-
         .hm-gridItem {
             width: 100%;
 
-
             .hm-cover {
-
                 width: 100%;
                 height: 150px;
             }

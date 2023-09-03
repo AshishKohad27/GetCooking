@@ -3,74 +3,133 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { BsBookmarkFill } from "react-icons/bs";
 import { BiChevronRight } from "react-icons/bi";
+import food from "../../food.json";
 
-let payload = {
-  idMeal: "52771",
-  strMeal: "Spicy Arrabiata Penne",
-  strDrinkAlternate: null,
-  strCategory: "Vegetarian",
-  strArea: "Italian",
-  strInstructions:
-    "Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. Add the chopped tomatoes, red chile flakes, Italian seasoning and salt and pepper to taste. Bring to a boil and cook for 5 minutes. Remove from the heat and add the chopped basil.\r\nDrain the pasta and add it to the sauce. Garnish with Parmigiano-Reggiano flakes and more basil and serve warm.",
-  strMealThumb:
-    "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
-  strTags: "Pasta,Curry",
-  strYoutube: "https://www.youtube.com/watch?v=1IszT_guI08",
-  strIngredient1: "penne rigate",
-  strIngredient2: "olive oil",
-  strIngredient3: "garlic",
-  strIngredient4: "chopped tomatoes",
-  strIngredient5: "red chile flakes",
-  strIngredient6: "italian seasoning",
-  strIngredient7: "basil",
-  strIngredient8: "Parmigiano-Reggiano",
-  strIngredient9: "",
-  strIngredient10: "",
-  strIngredient11: "",
-  strIngredient12: "",
-  strIngredient13: "",
-  strIngredient14: "",
-  strIngredient15: "",
-  strIngredient16: null,
-  strIngredient17: null,
-  strIngredient18: null,
-  strIngredient19: null,
-  strIngredient20: null,
-  strMeasure1: "1 pound",
-  strMeasure2: "1/4 cup",
-  strMeasure3: "3 cloves",
-  strMeasure4: "1 tin ",
-  strMeasure5: "1/2 teaspoon",
-  strMeasure6: "1/2 teaspoon",
-  strMeasure7: "6 leaves",
-  strMeasure8: "spinkling",
-  strMeasure9: "",
-  strMeasure10: "",
-  strMeasure11: "",
-  strMeasure12: "",
-  strMeasure13: "",
-  strMeasure14: "",
-  strMeasure15: "",
-  strMeasure16: null,
-  strMeasure17: null,
-  strMeasure18: null,
-  strMeasure19: null,
-  strMeasure20: null,
-  strSource: null,
-  strImageSource: null,
-  strCreativeCommonsConfirmed: null,
-  dateModified: null,
+type data = {
+  idMeal?: string | null;
+  strMeal?: string | null;
+  strDrinkAlternate?: string | null;
+  strCategory?: string | null;
+  strArea?: string | null;
+  strInstructions?: string | null;
+  strTags?: string | null;
+  strYoutube?: string | null;
+  strIngredient1?: string | null;
+  strIngredient2?: string | null;
+  strIngredient3?: string | null;
+  strIngredient4?: string | null;
+  strIngredient5?: string | null;
+  strIngredient6?: string | null;
+  strIngredient7?: string | null;
+  strIngredient8?: string | null;
+  strIngredient9?: string | null;
+  strIngredient10?: string | null;
+  strIngredient11?: string | null;
+  strIngredient12?: string | null;
+  strIngredient13?: string | null;
+  strIngredient14?: string | null;
+  strIngredient15?: string | null;
+  strIngredient16?: string | null;
+  strIngredient17?: string | null;
+  strIngredient18?: string | null;
+  strIngredient19?: string | null;
+  strIngredient20?: string | null;
+  strMeasure1?: string | null;
+  strMeasure2?: string | null;
+  strMeasure3?: string | null;
+  strMeasure4?: string | null;
+  strMeasure5?: string | null;
+  strMeasure6?: string | null;
+  strMeasure7?: string | null;
+  strMeasure8?: string | null;
+  strMeasure9?: string | null;
+  strMeasure10?: string | null;
+  strMeasure11?: string | null;
+  strMeasure12?: string | null;
+  strMeasure13?: string | null;
+  strMeasure14?: string | null;
+  strMeasure15?: string | null;
+  strMeasure16?: string | null;
+  strMeasure17?: string | null;
+  strMeasure18?: string | null;
+  strMeasure19?: string | null;
+  strMeasure20?: string | null;
+  strSource?: string | null;
+  strImageSource?: string | null;
+  strCreativeCommonsConfirmed?: string | null;
+  dateModified?: string | null;
 };
 
 export default function SinglePage() {
+  const [data, setData] = useState<data>({
+    idMeal: "",
+    strMeal: "",
+    strDrinkAlternate: "",
+    strCategory: "",
+    strArea: "",
+    strInstructions: "",
+    strTags: "",
+    strYoutube: "",
+    strIngredient1: "",
+    strIngredient2: "",
+    strIngredient3: "",
+    strIngredient4: "",
+    strIngredient5: "",
+    strIngredient6: "",
+    strIngredient7: "",
+    strIngredient8: "",
+    strIngredient9: "",
+    strIngredient10: "",
+    strIngredient11: "",
+    strIngredient12: "",
+    strIngredient13: "",
+    strIngredient14: "",
+    strIngredient15: "",
+    strIngredient16: "",
+    strIngredient17: "",
+    strIngredient18: "",
+    strIngredient19: "",
+    strIngredient20: "",
+    strMeasure1: "",
+    strMeasure2: "",
+    strMeasure3: "",
+    strMeasure4: "",
+    strMeasure5: "",
+    strMeasure6: "",
+    strMeasure7: "",
+    strMeasure8: "",
+    strMeasure9: "",
+    strMeasure10: "",
+    strMeasure11: "",
+    strMeasure12: "",
+    strMeasure13: "",
+    strMeasure14: "",
+    strMeasure15: "",
+    strMeasure16: "",
+    strMeasure17: "",
+    strMeasure18: "",
+    strMeasure19: "",
+    strMeasure20: "",
+    strSource: "",
+    strImageSource: "",
+    strCreativeCommonsConfirmed: "",
+    dateModified: "",
+  });
+
   const [steps, setSteps] = useState();
   const [bookMark, setBookMark] = useState(false);
   const [tabActive, setTabActive] = useState("ingridents");
   const router = useRouter();
   // console.log("router:", router);
-  const { foodId } = router.query;
-  // console.log("router:", foodId);
+  const { foodId, color } = router.query;
+  console.log("router:", color);
 
+  useEffect(() => {
+    let filter = food.filter((item) => item.idMeal === foodId)[0];
+    console.log("filter:", filter);
+    setData(filter);
+  }, []);
+  console.log("Data:", data);
   return (
     <div
       className="single-outer"
@@ -82,14 +141,12 @@ export default function SinglePage() {
         <div className="single-inner">
           {/* Header of Single Page */}
           <div className="single-header">
-            <div className="single-tabsheader">
+            <div className="single-breadcrums">
               <span>
                 <Link href="/">Home</Link>
               </span>
-
               <BiChevronRight />
-
-              <span>{foodId}</span>
+              <span>{data.strArea}</span>
             </div>
             <div>
               <BsBookmarkFill
@@ -103,16 +160,14 @@ export default function SinglePage() {
             className="single-bgCover"
             style={{
               // backgroundImage: `url(${"/images/food.jpg"})`,
-              backgroundImage: `url(${payload.strMealThumb})`,
+              backgroundImage: `url(${data.strMealThumb})`,
             }}
           >
-            <h1>{payload.strMeal}</h1>
+            <h1>{data.strMeal}</h1>
             {/* Category */}
-
-            
-            <div className="tool-cover tool-cat">{payload.strCategory}</div>
+            <div className="tool-cover tool-cat">{data.strCategory}</div>
             {/* Area */}
-            <div className="tool-cover tool-area">{payload.strArea}</div>
+            <div className="tool-cover tool-area">{data.strArea}</div>
           </div>
 
           {/* Tags/Category/Area */}
@@ -120,11 +175,12 @@ export default function SinglePage() {
             {/* Tags */}
             <div className="tool-tag-title">Tags</div>
             <div className="tags-container">
-              {payload.strTags.split(",").map((item: string, index: number) => (
-                <div className="tool-tags" key={index}>
-                  {item}
-                </div>
-              ))}
+              {data &&
+                data.strTags.split(",").map((item?: string, index: number) => (
+                  <div className="tool-tags" key={index}>
+                    {item}
+                  </div>
+                ))}
             </div>
           </div>
 
@@ -230,12 +286,13 @@ function IngridentsContain() {
 function ProcedureContain() {
   return (
     <ul className="procedure-list ">
-      {payload.strInstructions.split(".").map((item: string, index: number) => (
-        <li className="listItem">
-          <h1>Step {index + 1}</h1>
-          <p>{item}.</p>
-        </li>
-      ))}
+      {/* {data &&
+        data.strInstructions.split(".").map((item?: string, index: number) => (
+          <li className="listItem">
+            <h1>Step {index + 1}</h1>
+            <p>{item}.</p>
+          </li>
+        ))} */}
     </ul>
   );
 }
