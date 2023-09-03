@@ -1,8 +1,10 @@
 import { GoFilter } from "react-icons/go";
 import { BsSearch } from "react-icons/bs";
 import Link from "next/link";
+import category from "../../category.json";
 
 export default function HomePage() {
+  console.log("category:", category);
   return (
     <div
       className="hm-outer"
@@ -35,6 +37,9 @@ export default function HomePage() {
               <GoFilter />
             </div>
           </div>
+
+          {/* Category Block */}
+          <div className="hm-category"></div>
 
           <div className="hm-grid">
             <div className="hm-gridItem">
