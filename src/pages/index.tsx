@@ -210,6 +210,7 @@ export default function HomePage() {
                   index: number
                 ) => (
                   <GridItemContent
+                    key={index}
                     strMealThumb={strMealThumb}
                     strArea={strArea}
                     strMeal={strMeal}
@@ -379,7 +380,7 @@ function GridItemContent({
       (item) => item.strArea.toLowerCase() === strArea.toLowerCase()
     )[0];
     setColor(filteredItems.btnHover);
-  }, []);
+  }, [strArea]);
   return (
     <div
       className="hm-gridItem"

@@ -128,7 +128,7 @@ export default function SinglePage() {
     let filter = food.filter((item) => item.idMeal === foodId)[0];
     console.log("filter:", filter);
     setData(filter);
-  }, []);
+  }, [foodId]);
   console.log("Data:", data);
   return (
     <div
@@ -160,7 +160,7 @@ export default function SinglePage() {
             className="single-bgCover"
             style={{
               // backgroundImage: `url(${"/images/food.jpg"})`,
-              backgroundImage: `url(${data.strMealThumb})`,
+              // backgroundImage: `url(${data.strMealThumb})`,
             }}
           >
             <h1>{data.strMeal}</h1>
@@ -175,12 +175,12 @@ export default function SinglePage() {
             {/* Tags */}
             <div className="tool-tag-title">Tags</div>
             <div className="tags-container">
-              {data &&
+              {/* {data &&
                 data.strTags.split(",").map((item?: string, index: number) => (
                   <div className="tool-tags" key={index}>
                     {item}
                   </div>
-                ))}
+                ))} */}
             </div>
           </div>
 

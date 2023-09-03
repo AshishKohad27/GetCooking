@@ -126,7 +126,7 @@ export default function Area({ areaProps }: { areaProps: string }) {
     )[0];
     // console.log(filteredItems);
     setColor(filteredItems.btnHover);
-  }, []);
+  }, [areaProps]);
 
   return (
     <div className="site-category">
