@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import "../scss/app.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -21,6 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossOrigin="anonymous"
       />
+      <Header />
       <Component {...pageProps} />
     </>
   );

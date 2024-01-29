@@ -21,12 +21,12 @@ export const QueryMySql = async ({ query, values = [] }: QueryValue) => {
 
         // Close the connection when done
         await connection.end();
-        console.log("Result--------------->", result)
+        // console.log("Result--------------->", result)
         // Return Result
         return result;
 
     } catch (error: any) {
-        console.log("error------------------>:", error)
+        // console.log("error------------------>:", error)
         // throw Error(error.message);
         return error;
     }

@@ -27,7 +27,7 @@ export default function Login() {
     event.preventDefault();
     const { email, password } = form;
     if (email && password) {
-      console.log("formLogin:", form);
+      // console.log("formLogin:", form);
       //   dispatch(getLogin(form));
     } else {
       setSubmitted(true);

@@ -2,8 +2,10 @@
 @use "./pages/auth";
 @use "./pages/home";
 @use "./pages/single";
+@use "./pages/section";
 
 /* Components */
+@use "./components/header.scss";
 
 /* Common */
 

@@ -122,14 +122,14 @@ export default function SinglePage() {
   const router = useRouter();
   // console.log("router:", router);
   const { foodId, color } = router.query;
-  console.log("router:", color);
+  // console.log("router:", color);
 
   useEffect(() => {
     let filter = food.filter((item) => item.idMeal === foodId)[0];
-    console.log("filter:", filter);
+    // console.log("filter:", filter);
     setData(filter);
   }, [foodId]);
-  console.log("Data:", data);
+  // console.log("Data:", data);
   return (
     <div
       className="single-outer"

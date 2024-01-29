@@ -1,0 +1,106 @@
+@use "../website/base";
+
+.site-header-outer {
+    // background-color: red;
+    border-bottom: 2px solid base.$getcooking-color--orange;
+    margin-bottom: 15px;
+}
+
+.site-header-inner {
+    // height: 80px;
+    padding: 8px 0px;
+}
+
+
+
+.site-nav-desk {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-wrapper {
+
+
+    .site-nav-imgbox {
+        width: 180px;
+        height: 56px;
+
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+}
+
+// Ham
+.site-ham-list {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+
+    span {
+        height: 3px;
+        width: 38px;
+        background-color: base.$getcooking-color--black;
+        transition: all 0.5s;
+    }
+
+}
+
+.site-ham-list--active {
+    span {
+        height: 4px;
+    }
+
+    span:first-child {
+        transform: rotate(45deg) translate(8px, 7px);
+    }
+
+    span:nth-child(2) {
+        opacity: 0;
+    }
+
+    span:last-child {
+        transform: rotate(-45deg) translate(9px, -8px);
+    }
+}
+
+.right-wrapper {
+
+
+    .acc-avatar-box {
+
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+
+
+.isDesktop {
+    display: inherit;
+}
+
+.isMobile {
+    display: none;
+}
+
+@media (max-width:767px) {
+    .isDesktop {
+        display: none;
+    }
+
+    .isMobile {
+        display: inherit;
+    }
+}

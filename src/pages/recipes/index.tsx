@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 export default function Recipes() {
   useEffect(() => {
@@ -9,6 +9,7 @@ export default function Recipes() {
       console.log("response data:", responseData);
     }
     getPageData();
-  });
+  }, []); // Added an empty dependency array to useEffect
+
   return <h1 className="all-outer">Cart Page</h1>;
 }
